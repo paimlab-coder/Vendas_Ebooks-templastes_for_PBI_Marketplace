@@ -1,2 +1,0 @@
-# Vendas_Ebooks-templastes_for_PBI_Marketplace
-Vendas_Ebooks-templastes_for_PBI_Marketplace
