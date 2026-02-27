@@ -1,207 +1,608 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Templates, Dashboards e eBooks Estratégicos para Performance Analítica e Inteligência de Mercado</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Templates, Dashboards e eBooks Estratégicos para Performance Analítica e Inteligência de Mercado</title>
+  <meta name="description" content="Templates, Dashboards e eBooks para Power BI e Inteligência de Mercado com padrão corporativo." />
 
-<style>
-body{
-  margin:0;
-  font-family: Arial, Helvetica, sans-serif;
-  background:#f4f6f9;
-}
+  <style>
+    :root{
+      --bg:#070b12;
+      --bg2:#0b1220;
+      --card:#0f172a;
+      --card2:#111c33;
+      --text:#e8eefc;
+      --muted:#a7b3cc;
+      --line:rgba(255,255,255,.10);
+      --accent:#f2b532; /* amarelo/laranja */
+      --accent2:#f7c95a;
+      --btn:#f2b532;
+      --btnText:#0b0f16;
+      --shadow:0 24px 70px rgba(0,0,0,.45);
+      --radius:18px;
+      --max:1200px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Helvetica Neue", sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(1100px 700px at 18% 20%, rgba(242,181,50,.18), transparent 60%),
+        radial-gradient(900px 600px at 78% 35%, rgba(74,163,255,.10), transparent 55%),
+        radial-gradient(700px 500px at 70% 80%, rgba(242,181,50,.08), transparent 60%),
+        linear-gradient(180deg, #060a12, #070b12 35%, #050814);
+    }
+    a{color:inherit}
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 20px}
+    .topbar{
+      position:sticky; top:0; z-index:30;
+      backdrop-filter: blur(10px);
+      background: linear-gradient(180deg, rgba(7,11,18,.82), rgba(7,11,18,.62));
+      border-bottom:1px solid var(--line);
+    }
+    .topbar-inner{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0;
+      gap:14px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px;
+      min-width: 220px;
+    }
+    .avatar{
+      width:38px; height:38px; border-radius:12px;
+      background: linear-gradient(145deg, rgba(242,181,50,.35), rgba(255,255,255,.06));
+      border:1px solid rgba(242,181,50,.35);
+      box-shadow: 0 10px 30px rgba(242,181,50,.10);
+    }
+    .brand h1{
+      margin:0; font-size:15px; letter-spacing:.2px;
+      line-height:1.1;
+    }
+    .brand small{
+      display:block;
+      margin-top:3px;
+      color:var(--muted);
+      font-size:11px;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+    }
+    nav{
+      display:flex; align-items:center; gap:18px;
+      color:var(--muted);
+      font-size:13px;
+    }
+    nav a{
+      text-decoration:none;
+      padding:8px 10px;
+      border-radius:12px;
+      transition:.18s;
+    }
+    nav a:hover{
+      background: rgba(255,255,255,.06);
+      color: var(--text);
+    }
+    .cta{
+      display:flex; align-items:center; gap:10px;
+      min-width:220px; justify-content:flex-end;
+    }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:10px;
+      padding:11px 16px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.10);
+      text-decoration:none;
+      font-weight:700;
+      font-size:13px;
+      transition:.18s;
+      user-select:none;
+      cursor:pointer;
+      white-space:nowrap;
+    }
+    .btn-primary{
+      background: linear-gradient(180deg, var(--btn), var(--accent2));
+      color: var(--btnText);
+      border-color: rgba(242,181,50,.55);
+      box-shadow: 0 16px 40px rgba(242,181,50,.20);
+    }
+    .btn-primary:hover{ transform: translateY(-1px); filter:saturate(1.05); }
+    .btn-ghost{
+      background: rgba(255,255,255,.04);
+      color: var(--text);
+    }
+    .btn-ghost:hover{ background: rgba(255,255,255,.07); transform: translateY(-1px); }
 
-header{
-  background:#111827;
-  color:white;
-  padding:40px 20px;
-  text-align:center;
-}
+    /* HERO */
+    .hero{
+      padding:44px 0 26px;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap:26px;
+      align-items:center;
+    }
+    @media (max-width: 980px){
+      .hero-grid{ grid-template-columns: 1fr; }
+      .cta{ min-width:auto }
+      nav{ display:none; } /* mobile clean */
+    }
+    .pill{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid rgba(242,181,50,.35);
+      background: rgba(242,181,50,.07);
+      color: var(--accent2);
+      font-size:12px;
+      font-weight:700;
+      letter-spacing:.02em;
+      width:fit-content;
+    }
+    .pill .dot{
+      width:18px; height:18px; border-radius:6px;
+      display:inline-flex; align-items:center; justify-content:center;
+      background: rgba(242,181,50,.16);
+      border: 1px solid rgba(242,181,50,.35);
+      color: var(--accent2);
+      font-size:12px;
+    }
+    .hero h2{
+      margin:16px 0 0;
+      font-size:56px;
+      line-height:1.02;
+      letter-spacing:-.02em;
+    }
+    @media (max-width: 980px){
+      .hero h2{ font-size:42px; }
+    }
+    .hero .accent{ color: var(--accent); }
+    .hero p{
+      margin:16px 0 0;
+      color: var(--muted);
+      font-size:15.5px;
+      line-height:1.55;
+      max-width: 58ch;
+    }
+    .hero-actions{
+      display:flex; gap:12px; margin-top:20px; flex-wrap:wrap;
+    }
+    .hero-metrics{
+      margin-top:22px;
+      display:flex; gap:18px; flex-wrap:wrap;
+    }
+    .metric{
+      display:flex; align-items:flex-start; gap:10px;
+      color: var(--muted);
+      font-size:12.5px;
+    }
+    .metric strong{
+      display:block;
+      color: var(--text);
+      font-size:13.5px;
+      margin-bottom:2px;
+    }
+    .ico{
+      width:30px; height:30px; border-radius:12px;
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.08);
+      display:inline-flex; align-items:center; justify-content:center;
+    }
 
-header h1{
-  margin:0;
-  font-size:28px;
-}
+    .mock{
+      position:relative;
+      border-radius: 22px;
+      overflow:hidden;
+      border: 1px solid rgba(255,255,255,.10);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      box-shadow: var(--shadow);
+      min-height: 360px;
+    }
+    .mock .img{
+      width:100%; height:100%;
+      display:block;
+      object-fit:cover;
+      opacity:.98;
+      transform: scale(1.02);
+    }
+    .badge{
+      position:absolute;
+      left:18px;
+      bottom:18px;
+      display:flex;
+      align-items:center;
+      gap:12px;
+      background: rgba(10,14,22,.78);
+      border:1px solid rgba(255,255,255,.10);
+      border-radius: 16px;
+      padding:12px 14px;
+      backdrop-filter: blur(10px);
+    }
+    .badge .clock{
+      width:34px; height:34px; border-radius:14px;
+      display:inline-flex; align-items:center; justify-content:center;
+      background: rgba(242,181,50,.12);
+      border: 1px solid rgba(242,181,50,.28);
+      color: var(--accent2);
+      font-weight:900;
+    }
+    .badge strong{ display:block; font-size:16px; }
+    .badge span{ display:block; font-size:12px; color: var(--muted); margin-top:2px; }
 
-.container{
-  max-width:1200px;
-  margin:40px auto;
-  padding:20px;
-}
+    /* SEÇÕES */
+    .section{
+      padding: 18px 0 60px;
+    }
+    .section-title{
+      display:flex; align-items:flex-end; justify-content:space-between;
+      gap:16px; flex-wrap:wrap;
+      margin-top:18px;
+      margin-bottom:14px;
+    }
+    .section-title h3{
+      margin:0;
+      font-size:18px;
+      letter-spacing:.2px;
+    }
+    .section-title p{
+      margin:0;
+      color:var(--muted);
+      font-size:13px;
+    }
 
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:25px;
-}
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:16px;
+    }
+    @media (max-width: 980px){
+      .grid{ grid-template-columns: 1fr; }
+    }
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.03));
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: var(--radius);
+      padding:16px;
+      box-shadow: 0 18px 50px rgba(0,0,0,.25);
+      transition:.18s;
+    }
+    .card:hover{ transform: translateY(-2px); border-color: rgba(242,181,50,.25); }
+    .card h4{ margin:0 0 8px; font-size:15px; }
+    .card p{ margin:0; color:var(--muted); font-size:13px; line-height:1.45; }
+    .card .row{
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+      margin-top:12px;
+    }
+    .tag{
+      font-size:12px;
+      color: var(--accent2);
+      background: rgba(242,181,50,.10);
+      border: 1px solid rgba(242,181,50,.22);
+      padding:6px 10px;
+      border-radius:999px;
+      white-space:nowrap;
+    }
 
-.card{
-  background:white;
-  padding:25px;
-  border-radius:12px;
-  box-shadow:0 8px 20px rgba(0,0,0,0.08);
-  transition:0.3s;
-}
+    /* Produto (detalhe) */
+    #produto{
+      margin-top:18px;
+      display:none;
+      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.03));
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: 22px;
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+    #produto h3{ margin:0 0 8px; font-size:20px; }
+    #produto p{ margin:0 0 12px; color: var(--muted); line-height:1.5; }
+    #produto ul{ margin:0 0 14px; padding-left:16px; color: var(--text); }
+    #produto li{ margin: 7px 0; color: var(--text); }
+    .product-actions{
+      display:flex; gap:10px; flex-wrap:wrap;
+      margin-top:10px;
+    }
+    .fine{
+      color: var(--muted);
+      font-size:12px;
+      margin-top:10px;
+    }
 
-.card:hover{
-  transform:translateY(-5px);
-}
-
-.card h3{
-  margin-top:0;
-  font-size:18px;
-}
-
-.card p{
-  font-size:14px;
-  color:#555;
-}
-
-.btn{
-  display:inline-block;
-  margin-top:15px;
-  padding:10px 18px;
-  background:#2563eb;
-  color:white;
-  text-decoration:none;
-  border-radius:8px;
-  font-weight:bold;
-}
-
-.btn:hover{
-  background:#1d4ed8;
-}
-
-#produto{
-  margin-top:60px;
-  padding:30px;
-  background:white;
-  border-radius:12px;
-  box-shadow:0 8px 20px rgba(0,0,0,0.08);
-}
-
-#produto h2{
-  margin-top:0;
-}
-
-ul{
-  padding-left:18px;
-}
-</style>
+    footer{
+      border-top:1px solid var(--line);
+      color:var(--muted);
+      padding:22px 0;
+      font-size:12px;
+    }
+  </style>
 </head>
 
 <body>
 
-<header>
-<h1>Templates, Dashboards e eBooks Estratégicos para Performance Analítica e Inteligência de Mercado</h1>
-</header>
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <div class="wrap topbar-inner">
+      <div class="brand">
+        <div class="avatar" aria-hidden="true"></div>
+        <div>
+          <h1>Diogo Paim</h1>
+          <small>Power BI • BI • Market Intelligence</small>
+        </div>
+      </div>
 
-<div class="container">
+      <nav>
+        <a href="#vitrine">Vitrine</a>
+        <a href="#provas">Provas</a>
+        <a href="#planos">Planos</a>
+      </nav>
 
-<div class="grid">
+      <div class="cta">
+        <a class="btn btn-primary" href="#vitrine">Comprar agora →</a>
+      </div>
+    </div>
+  </div>
 
-<div class="card">
-<h3>Produto Estratégico 01</h3>
-<p>Templates e dashboards profissionais para decisões executivas.</p>
-<a href="#" class="btn" data-produto="p1">Ver detalhes</a>
-</div>
+  <!-- HERO / FACHADA -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="pill"><span class="dot">⚡</span> Materiais prontos para uso profissional</div>
 
-<div class="card">
-<h3>Produto Estratégico 02</h3>
-<p>Performance analítica com estrutura pronta para Power BI.</p>
-<a href="#" class="btn" data-produto="p2">Ver detalhes</a>
-</div>
+        <h2>
+          Templates e<br/>
+          Dashboards de <span class="accent">Power BI</span> com<br/>
+          padrão corporativo
+        </h2>
 
-<div class="card">
-<h3>Produto Estratégico 03</h3>
-<p>Inteligência de mercado aplicada à tomada de decisão.</p>
-<a href="#" class="btn" data-produto="p3">Ver detalhes</a>
-</div>
+        <p>
+          Pare de perder horas com layout e ajustes. Use estruturas prontas para KPIs, metas, carteira, YOY e análises que deixam
+          sua apresentação mais clara — e sua entrega mais rápida.
+        </p>
 
-<div class="card">
-<h3>Produto Estratégico 04</h3>
-<p>Dashboards premium para acompanhamento de metas.</p>
-<a href="#" class="btn" data-produto="p4">Ver detalhes</a>
-</div>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#vitrine">Comprar agora →</a>
+          <a class="btn btn-ghost" href="#planos">Ver planos</a>
+        </div>
 
-<div class="card">
-<h3>Produto Estratégico 05</h3>
-<p>Templates avançados para análise de performance.</p>
-<a href="#" class="btn" data-produto="p5">Ver detalhes</a>
-</div>
+        <div class="hero-metrics">
+          <div class="metric">
+            <div class="ico">⚡</div>
+            <div><strong>Uso real</strong>Dia a dia corporativo</div>
+          </div>
+          <div class="metric">
+            <div class="ico">⏱</div>
+            <div><strong>Mais rápido</strong>Entrega em menos tempo</div>
+          </div>
+          <div class="metric">
+            <div class="ico">👁</div>
+            <div><strong>Mais claro</strong>KPIs “sem ruído”</div>
+          </div>
+        </div>
+      </div>
 
-</div>
+      <!-- Mockup da direita -->
+      <div class="mock" aria-label="Mockup dashboard">
+        <!-- ✅ Troque o src abaixo por uma imagem sua:
+             1) Suba uma imagem no GitHub (ex.: hero.png)
+             2) Deixe na raiz do repositório
+             3) Troque src="hero.png"
+        -->
+        <img class="img" src="hero.png" alt="Exemplo de dashboard Power BI" onerror="this.style.display='none'; this.parentElement.style.minHeight='360px'; this.parentElement.style.display='flex'; this.parentElement.style.alignItems='center'; this.parentElement.style.justifyContent='center'; this.parentElement.innerHTML += '<div style=&quot;color:rgba(255,255,255,.7);font-size:13px;padding:18px;text-align:center;max-width:420px&quot;>Suba uma imagem chamada <b>hero.png</b> na raiz do repositório para aparecer aqui.<br/>Ou troque o <b>src</b> no HTML para uma URL de imagem.</div>';" />
 
-<div id="produto" style="display:none;">
-<h2 id="produtoTitulo"></h2>
-<p id="produtoDescricao"></p>
-<ul id="produtoBullets"></ul>
-<a id="produtoComprar" class="btn" target="_blank">Comprar agora</a>
-</div>
+        <div class="badge">
+          <div class="clock">⏱</div>
+          <div>
+            <strong>9h/sem economizadas</strong>
+            <span>com templates prontos</span>
+          </div>
+        </div>
+      </div>
 
-</div>
+    </div>
+  </section>
 
-<script>
+  <!-- VITRINE -->
+  <section id="vitrine" class="section">
+    <div class="wrap">
+      <div class="section-title">
+        <div>
+          <h3>Vitrine</h3>
+          <p>Selecione um item para ver detalhes e abrir o link direto no Hotmart.</p>
+        </div>
+      </div>
 
-const PRODUTOS = {
-  "p1": {
-    titulo: "Templates, Dashboards e eBooks Estratégicos",
-    desc: "Produto completo para performance analítica.",
-    bullets:["Entrega digital","Visual corporativo","Alta aplicabilidade"],
-    hotmart:"https://go.hotmart.com/C104447270N"
-  },
-  "p2": {
-    titulo: "Templates, Dashboards e eBooks Estratégicos",
-    desc: "Produto completo para performance analítica.",
-    bullets:["Entrega digital","Visual corporativo","Alta aplicabilidade"],
-    hotmart:"https://go.hotmart.com/Y104311734R"
-  },
-  "p3": {
-    titulo: "Templates, Dashboards e eBooks Estratégicos",
-    desc: "Produto completo para performance analítica.",
-    bullets:["Entrega digital","Visual corporativo","Alta aplicabilidade"],
-    hotmart:"https://go.hotmart.com/P104384271Y"
-  },
-  "p4": {
-    titulo: "Templates, Dashboards e eBooks Estratégicos",
-    desc: "Produto completo para performance analítica.",
-    bullets:["Entrega digital","Visual corporativo","Alta aplicabilidade"],
-    hotmart:"https://go.hotmart.com/K104465601X"
-  },
-  "p5": {
-    titulo: "Templates, Dashboards e eBooks Estratégicos",
-    desc: "Produto completo para performance analítica.",
-    bullets:["Entrega digital","Visual corporativo","Alta aplicabilidade"],
-    hotmart:"https://go.hotmart.com/V104384226U"
-  }
-};
+      <div class="grid">
+        <div class="card">
+          <h4>Produto 01</h4>
+          <p>Templates e dashboards profissionais para decisões executivas.</p>
+          <div class="row">
+            <span class="tag">Hotmart</span>
+            <a class="btn btn-ghost" href="#produto" data-produto="p1">Ver detalhes</a>
+          </div>
+        </div>
 
-document.addEventListener("click", function(e){
-  const btn = e.target.closest("[data-produto]");
-  if(!btn) return;
-  e.preventDefault();
+        <div class="card">
+          <h4>Produto 02</h4>
+          <p>Performance analítica com estrutura pronta para Power BI.</p>
+          <div class="row">
+            <span class="tag">Hotmart</span>
+            <a class="btn btn-ghost" href="#produto" data-produto="p2">Ver detalhes</a>
+          </div>
+        </div>
 
-  const slug = btn.getAttribute("data-produto");
-  const data = PRODUTOS[slug];
+        <div class="card">
+          <h4>Produto 03</h4>
+          <p>Inteligência de mercado aplicada à tomada de decisão.</p>
+          <div class="row">
+            <span class="tag">Hotmart</span>
+            <a class="btn btn-ghost" href="#produto" data-produto="p3">Ver detalhes</a>
+          </div>
+        </div>
 
-  document.getElementById("produtoTitulo").textContent = data.titulo;
-  document.getElementById("produtoDescricao").textContent = data.desc;
+        <div class="card">
+          <h4>Produto 04</h4>
+          <p>Dashboards premium para acompanhamento de metas.</p>
+          <div class="row">
+            <span class="tag">Hotmart</span>
+            <a class="btn btn-ghost" href="#produto" data-produto="p4">Ver detalhes</a>
+          </div>
+        </div>
 
-  const ul = document.getElementById("produtoBullets");
-  ul.innerHTML = "";
-  data.bullets.forEach(b=>{
-    const li = document.createElement("li");
-    li.textContent = "✔ " + b;
-    ul.appendChild(li);
-  });
+        <div class="card">
+          <h4>Produto 05</h4>
+          <p>Templates avançados para análise de performance.</p>
+          <div class="row">
+            <span class="tag">Hotmart</span>
+            <a class="btn btn-ghost" href="#produto" data-produto="p5">Ver detalhes</a>
+          </div>
+        </div>
 
-  document.getElementById("produtoComprar").href = data.hotmart;
-  document.getElementById("produto").style.display = "block";
-  document.getElementById("produto").scrollIntoView({behavior:"smooth"});
-});
+        <!-- se quiser mais cards, copie/cole um card e troque data-produto -->
+      </div>
 
-</script>
+      <div id="produto">
+        <h3 id="produtoTitulo"></h3>
+        <p id="produtoDescricao"></p>
+        <ul id="produtoBullets"></ul>
 
+        <div class="product-actions">
+          <a id="produtoComprar" class="btn btn-primary" target="_blank" rel="noopener">Comprar agora →</a>
+          <a class="btn btn-ghost" href="#vitrine">Voltar à vitrine</a>
+        </div>
+
+        <div class="fine">Compra segura via Hotmart. Acesso imediato após confirmação.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROVAS (placeholder simples) -->
+  <section id="provas" class="section">
+    <div class="wrap">
+      <div class="section-title">
+        <div>
+          <h3>Provas</h3>
+          <p>Espaço para depoimentos, prints de dashboard, cases e resultados.</p>
+        </div>
+      </div>
+      <div class="card">
+        <h4>Coloque aqui 3 depoimentos curtos</h4>
+        <p>Ex.: “Entrega mais rápida”, “Visual profissional”, “Apresentação executiva”.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLANOS (placeholder simples) -->
+  <section id="planos" class="section">
+    <div class="wrap">
+      <div class="section-title">
+        <div>
+          <h3>Planos</h3>
+          <p>Se quiser, eu monto 3 planos (Starter / Pro / Enterprise) com CTA.</p>
+        </div>
+      </div>
+      <div class="card">
+        <h4>Plano sugerido</h4>
+        <p>Quando você me disser os nomes e benefícios, eu deixo isso no layout premium também.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">© <span id="year"></span> Diogo Paim • Templates, Dashboards e eBooks • Power BI & Inteligência de Mercado</div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // ====== PRODUTOS ======
+    const PRODUTOS = {
+      "p1": {
+        titulo: "Templates, Dashboards e eBooks Estratégicos para Performance Analítica e Inteligência de Mercado",
+        desc: "Produto completo para performance analítica e inteligência de mercado.",
+        bullets: ["Entrega digital", "Visual corporativo", "Alta aplicabilidade"],
+        hotmart: "https://go.hotmart.com/C104447270N"
+      },
+      "p2": {
+        titulo: "Templates, Dashboards e eBooks Estratégicos para Performance Analítica e Inteligência de Mercado",
+        desc: "Produto completo para performance analítica e inteligência de mercado.",
+        bullets: ["Entrega digital", "Visual corporativo", "Alta aplicabilidade"],
+        hotmart: "https://go.hotmart.com/Y104311734R"
+      },
+      "p3": {
+        titulo: "Templates, Dashboards e eBooks Estratégicos para Performance Analítica e Inteligência de Mercado",
+        desc: "Produto completo para performance analítica e inteligência de mercado.",
+        bullets: ["Entrega digital", "Visual corporativo", "Alta aplicabilidade"],
+        hotmart: "https://go.hotmart.com/P104384271Y"
+      },
+      "p4": {
+        titulo: "Templates, Dashboards e eBooks Estratégicos para Performance Analítica e Inteligência de Mercado",
+        desc: "Produto completo para performance analítica e inteligência de mercado.",
+        bullets: ["Entrega digital", "Visual corporativo", "Alta aplicabilidade"],
+        hotmart: "https://go.hotmart.com/K104465601X"
+      },
+      "p5": {
+        titulo: "Templates, Dashboards e eBooks Estratégicos para Performance Analítica e Inteligência de Mercado",
+        desc: "Produto completo para performance analítica e inteligência de mercado.",
+        bullets: ["Entrega digital", "Visual corporativo", "Alta aplicabilidade"],
+        hotmart: "https://go.hotmart.com/V104384226U"
+      }
+    };
+
+    function abrirProduto(slug){
+      const data = PRODUTOS[slug];
+      if(!data) return;
+
+      document.getElementById("produtoTitulo").textContent = data.titulo;
+      document.getElementById("produtoDescricao").textContent = data.desc;
+
+      const ul = document.getElementById("produtoBullets");
+      ul.innerHTML = "";
+      (data.bullets || []).forEach((b)=>{
+        const li = document.createElement("li");
+        li.textContent = "✅ " + b;
+        ul.appendChild(li);
+      });
+
+      const btn = document.getElementById("produtoComprar");
+      btn.href = data.hotmart || "#";
+
+      const sec = document.getElementById("produto");
+      sec.style.display = "block";
+      sec.scrollIntoView({behavior:"smooth", block:"start"});
+    }
+
+    // clique nos cards
+    document.addEventListener("click", (e)=>{
+      const a = e.target.closest("a[data-produto]");
+      if(!a) return;
+      e.preventDefault();
+
+      const slug = a.getAttribute("data-produto");
+
+      // Atualiza URL com querystring (funciona no GitHub Pages)
+      const url = new URL(window.location.href);
+      url.searchParams.set("produto", slug);
+      history.pushState({}, "", url.toString());
+
+      abrirProduto(slug);
+    });
+
+    // abrir direto via ?produto=
+    window.addEventListener("load", ()=>{
+      const params = new URLSearchParams(window.location.search);
+      const slug = params.get("produto");
+      if(slug) abrirProduto(slug);
+    });
+
+    // back/forward
+    window.addEventListener("popstate", ()=>{
+      const params = new URLSearchParams(window.location.search);
+      const slug = params.get("produto");
+      if(slug) abrirProduto(slug);
+    });
+  </script>
 </body>
 </html>
