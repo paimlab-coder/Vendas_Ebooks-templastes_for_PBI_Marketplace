@@ -1,142 +1,192 @@
-const PRODUTOS = {
-  "ancora-abc-pareto": {
-    titulo: "Template for Power BI • Curva ABC (Pareto)",
-    desc: "Identifique rapidamente o que realmente impacta o faturamento (A/B/C) e facilite decisões com leitura executiva.",
-    bullets: ["Curva ABC pronta", "Leitura rápida para decisão", "Padrão corporativo"],
-    hotmart: "https://go.hotmart.com/A104311410P",
-  },
-  "template-cor-666666": {
-    titulo: "Template For Power BI • Cor 666666",
-    desc: "Layout corporativo pronto para KPIs com visual moderno e consistente.",
-    bullets: ["Visual corporativo", "KPIs prontos", "Entrega mais rápida"],
-    hotmart: "https://go.hotmart.com/Y104311734R",
-  },
-  "template-business-inteligence": {
-    titulo: "Template for Business Intelligence",
-    desc: "Estrutura pronta para dashboards e relatórios com clareza e credibilidade executiva.",
-    bullets: ["Estrutura limpa", "Padrão executivo", "Fácil de adaptar"],
-    hotmart: "https://go.hotmart.com/F104310768L",
-  },
-  "otimize-kpis": {
-    titulo: "Otimize seus KPIs • Templates Power BI",
-    desc: "Templates prontos para análises, comparações e apresentações gerenciais.",
-    bullets: ["KPI executivo", "Comparativos prontos", "Apresentação mais clara"],
-    hotmart: "https://go.hotmart.com/R104310601N",
-  },
-  "metas-carteira-v01": {
-    titulo: "Metas e Carteira • v01",
-    desc: "Painel para metas e carteira com leitura rápida e visual clean.",
-    bullets: ["Metas x andamento", "Carteira organizada", "Padrão corporativo"],
-    hotmart: "https://go.hotmart.com/Y104311056O",
-  },
-  "metas-carteira-v02": {
-    titulo: "Metas e Carteira • v02",
-    desc: "Versão alternativa mantendo padrão corporativo e foco em decisão.",
-    bullets: ["Variante de layout", "Leitura rápida", "Visual consistente"],
-    hotmart: "https://go.hotmart.com/M104311045P",
-  },
-  "metas-realizado-brl-usd": {
-    titulo: "Metas x Realizado • BRL / USD",
-    desc: "Comparação de metas x realizado com visão em BRL e USD.",
-    bullets: ["Metas x Realizado", "Visão BRL/USD", "Pronto para reunião"],
-    hotmart: "https://go.hotmart.com/W104310980C",
-  },
-  "sellin-meta": {
-    titulo: "Evolução Sell-In & Meta",
-    desc: "Acompanhe evolução de sell-in e meta com leitura objetiva.",
-    bullets: ["Evolução temporal", "Meta vs realizado", "Visual limpo"],
-    hotmart: "https://go.hotmart.com/D104342815E",
-  },
-  "selling-average": {
-    titulo: "Selling Average • Média de Sell-in",
-    desc: "Métricas de selling average para análises de performance.",
-    bullets: ["Métricas prontas", "Análise de performance", "Estrutura adaptável"],
-    hotmart: "https://go.hotmart.com/A104310952C",
-  },
-  "yoy": {
-    titulo: "YOY • Year over Year",
-    desc: "Comparativo anual para crescimento, variações e tendência.",
-    bullets: ["Comparativo anual", "Variações e tendência", "Leitura executiva"],
-    hotmart: "https://go.hotmart.com/B104311279P",
-  },
-  "sales-dashboard-rs-mg": {
-    titulo: "Sales Dashboard • RS & MG",
-    desc: "Acompanhamento comercial com padrão executivo.",
-    bullets: ["Visão comercial", "KPIs de vendas", "Padrão corporativo"],
-    hotmart: "https://go.hotmart.com/O104311603N",
-  },
-  "fundo-azul-4f5d75": {
-    titulo: "Template • Fundo azul 4F5D75",
-    desc: "Versão com fundo azul: visual consistente e clean.",
-    bullets: ["Fundo azul", "Consistência visual", "Pronto para uso"],
-    hotmart: "https://go.hotmart.com/P104311697M",
-  },
-  "template-base-1": {
-    titulo: "Template Base • Power BI",
-    desc: "Template base para padronização de dashboards.",
-    bullets: ["Base corporativa", "Padronização", "Aplicação rápida"],
-    hotmart: "https://go.hotmart.com/B104342940A",
-  },
-  "template-base-2": {
-    titulo: "Template Base • Power BI (2)",
-    desc: "Template adicional para manter entregas clean.",
-    bullets: ["Variação base", "Visual clean", "Fácil de adaptar"],
-    hotmart: "https://go.hotmart.com/N104343002L",
-  },
-  "capa-1-gold": {
-    titulo: "Capa Premium • Gold (Relevo)",
-    desc: "Capa premium com aparência enterprise.",
-    bullets: ["Capa premium", "Look enterprise", "Impacto visual"],
-    hotmart: "https://go.hotmart.com/L104342610W",
-  },
-  "capa-2-prata": {
-    titulo: "Capa Premium • Prata (Relevo)",
-    desc: "Capa premium com relevo e visual corporativo.",
-    bullets: ["Capa premium", "Relevo", "Alta percepção de valor"],
-    hotmart: "https://go.hotmart.com/I104342647C",
-  },
-  "capa-3-blue": {
-    titulo: "Capa Premium • Blue (Relevo)",
-    desc: "Capa premium azul com aparência executiva.",
-    bullets: ["Capa premium", "Azul executivo", "Visual forte"],
-    hotmart: "https://go.hotmart.com/L104342680M",
-  },
-  "capa-4-white": {
-    titulo: "Capa Premium • White (Relevo)",
-    desc: "Capa premium branca com acabamento clean.",
-    bullets: ["Capa premium", "Clean", "Enterprise look"],
-    hotmart: "https://go.hotmart.com/U104342706V",
-  },
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Templates, Dashboards e eBooks Estratégicos para Performance Analítica e Inteligência de Mercado</title>
 
-  // ========= NOVOS PRODUTOS ADICIONADOS =========
+<style>
+body{
+  margin:0;
+  font-family: Arial, Helvetica, sans-serif;
+  background:#0b1220;
+  color:white;
+}
+
+header{
+  padding:60px 20px;
+  text-align:center;
+  background:linear-gradient(135deg,#0f172a,#111827);
+}
+
+header h1{
+  font-size:40px;
+  margin:0;
+}
+
+header p{
+  margin-top:15px;
+  color:#b8c1d9;
+}
+
+.container{
+  max-width:1200px;
+  margin:40px auto;
+  padding:20px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:20px;
+}
+
+.card{
+  background:#111c33;
+  padding:20px;
+  border-radius:14px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.4);
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:translateY(-5px);
+}
+
+.card h3{
+  margin:0 0 10px;
+}
+
+.card p{
+  color:#b8c1d9;
+  font-size:14px;
+}
+
+.btn{
+  display:inline-block;
+  margin-top:15px;
+  padding:10px 18px;
+  background:#f2b532;
+  color:black;
+  text-decoration:none;
+  border-radius:8px;
+  font-weight:bold;
+}
+
+.btn:hover{
+  opacity:0.9;
+}
+
+#produto{
+  margin-top:60px;
+  padding:30px;
+  background:#111c33;
+  border-radius:14px;
+  display:none;
+}
+
+ul{
+  padding-left:18px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Templates, Dashboards e eBooks Estratégicos</h1>
+<p>Performance Analítica e Inteligência de Mercado com padrão corporativo.</p>
+</header>
+
+<div class="container">
+
+<div class="grid" id="vitrine"></div>
+
+<div id="produto">
+<h2 id="produtoTitulo"></h2>
+<p id="produtoDescricao"></p>
+<ul id="produtoBullets"></ul>
+<a id="produtoComprar" class="btn" target="_blank">Comprar agora</a>
+</div>
+
+</div>
+
+<script>
+/* ====== SEUS PRODUTOS ====== */
+const PRODUTOS = {
   "produto-c104447270n": {
-    titulo: "Templates, Dashboards e eBooks Estratégicos para Performance Analítica e Inteligência de Mercado",
-    desc: "Produto exclusivo para performance analítica com acesso via Hotmart.",
-    bullets: ["Estratégias aplicáveis", "Dashboard pronto", "Entrega digital"],
-    hotmart: "https://go.hotmart.com/C104447270N",
+    titulo: "Produto Estratégico 01",
+    desc: "Performance analítica com padrão executivo.",
+    bullets: ["Entrega digital", "Visual corporativo", "Aplicação prática"],
+    hotmart: "https://go.hotmart.com/C104447270N"
   },
   "produto-y104311734r": {
-    titulo: "Templates, Dashboards e eBooks Estratégicos para Performance Analítica e Inteligência de Mercado",
-    desc: "Produto exclusivo para performance analítica com acesso via Hotmart.",
-    bullets: ["Estratégias aplicáveis", "Layout corporativo", "Entrega digital"],
-    hotmart: "https://go.hotmart.com/Y104311734R",
+    titulo: "Produto Estratégico 02",
+    desc: "Template profissional para decisões gerenciais.",
+    bullets: ["KPIs prontos", "Layout executivo", "Alta aplicabilidade"],
+    hotmart: "https://go.hotmart.com/Y104311734R"
   },
   "produto-p104384271y": {
-    titulo: "Templates, Dashboards e eBooks Estratégicos para Performance Analítica e Inteligência de Mercado",
-    desc: "Produto exclusivo para performance analítica com acesso via Hotmart.",
-    bullets: ["Conteúdo estratégico", "Entrega imediata", "Acesso via Hotmart"],
-    hotmart: "https://go.hotmart.com/P104384271Y",
+    titulo: "Produto Estratégico 03",
+    desc: "Estrutura pronta para análise estratégica.",
+    bullets: ["Entrega imediata", "Clareza visual", "Uso corporativo"],
+    hotmart: "https://go.hotmart.com/P104384271Y"
   },
   "produto-k104465601x": {
-    titulo: "Templates, Dashboards e eBooks Estratégicos para Performance Analítica e Inteligência de Mercado",
-    desc: "Produto exclusivo para performance analítica com acesso via Hotmart.",
-    bullets: ["Insights analíticos", "Visual prático", "Alta aplicabilidade"],
-    hotmart: "https://go.hotmart.com/K104465601X",
+    titulo: "Produto Estratégico 04",
+    desc: "Dashboard executivo premium.",
+    bullets: ["Foco em resultado", "Visual premium", "Aplicação prática"],
+    hotmart: "https://go.hotmart.com/K104465601X"
   },
   "produto-v104384226u": {
-    titulo: "Templates, Dashboards e eBooks Estratégicos para Performance Analítica e Inteligência de Mercado",
-    desc: "Produto exclusivo para performance analítica com acesso via Hotmart.",
-    bullets: ["Performance focada", "Visual executivo", "Entrega digital segura"],
-    hotmart: "https://go.hotmart.com/V104384226U",
-  },
+    titulo: "Produto Estratégico 05",
+    desc: "Inteligência de mercado aplicada.",
+    bullets: ["Estratégia", "Performance", "Entrega digital"],
+    hotmart: "https://go.hotmart.com/V104384226U"
+  }
 };
+
+/* ====== Renderização automática da vitrine ====== */
+const vitrine = document.getElementById("vitrine");
+
+Object.keys(PRODUTOS).forEach(slug => {
+  const produto = PRODUTOS[slug];
+
+  const card = document.createElement("div");
+  card.className = "card";
+  card.innerHTML = `
+    <h3>${produto.titulo}</h3>
+    <p>${produto.desc}</p>
+    <a href="#" class="btn" data-produto="${slug}">Ver detalhes</a>
+  `;
+  vitrine.appendChild(card);
+});
+
+/* ====== Abrir produto ====== */
+document.addEventListener("click", function(e){
+  const btn = e.target.closest("[data-produto]");
+  if(!btn) return;
+  e.preventDefault();
+
+  const slug = btn.getAttribute("data-produto");
+  const data = PRODUTOS[slug];
+
+  document.getElementById("produtoTitulo").textContent = data.titulo;
+  document.getElementById("produtoDescricao").textContent = data.desc;
+
+  const ul = document.getElementById("produtoBullets");
+  ul.innerHTML = "";
+  data.bullets.forEach(b=>{
+    const li = document.createElement("li");
+    li.textContent = "✔ " + b;
+    ul.appendChild(li);
+  });
+
+  document.getElementById("produtoComprar").href = data.hotmart;
+  document.getElementById("produto").style.display = "block";
+  document.getElementById("produto").scrollIntoView({behavior:"smooth"});
+});
+</script>
+
+</body>
+</html>
