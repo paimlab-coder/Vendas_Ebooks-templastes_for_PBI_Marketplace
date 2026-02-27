@@ -1,0 +1,23 @@
+// ➤ Novo produto 1
+"ebook-inteligencia-mercado-pricing": {
+  titulo: "eBook • Inteligência de Mercado & Pricing Estratégico",
+  desc: "Conteúdo prático para decisões comerciais com base em dados, margem e posicionamento de preço.",
+  bullets: ["Estrutura aplicável", "Foco em decisão executiva", "Preço e margem na prática"],
+  hotmart: "https://go.hotmart.com/W104486607J",
+},
+
+// ➤ Novo produto 2
+"produto-hotmart-o104455023y": {
+  titulo: "Produto • Hotmart (O104455023Y)",
+  desc: "Produto digital com acesso imediato via Hotmart.",
+  bullets: ["Acesso imediato", "Entrega digital", "Compra segura via Hotmart"],
+  hotmart: "https://go.hotmart.com/O104455023Y",
+},
+
+// ➤ Novo produto 3
+"produto-hotmart-c104447270n": {
+  titulo: "Produto • Hotmart (C104447270N)",
+  desc: "Produto digital adicional — pronto para compra via Hotmart.",
+  bullets: ["Compra 100% segura", "Entrega digital imediata", "Acesso facilitado"],
+  hotmart: "https://go.hotmart.com/C104447270N",
+},
